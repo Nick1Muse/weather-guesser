@@ -3,4 +3,18 @@
   justify-content: space-between;
   padding: 5px 14px;
   border-radius: 8px;
+
+  .answers {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: auto;
+
+    .answer {
+      display: flex;
+      align-items: center;
+      margin: 0 15px;
+      color: #FFF;
+    }
+  }
 }

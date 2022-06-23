@@ -4,7 +4,7 @@ import Main from './pages/Main/Main';
 
 function App() {
   return (
-    <Router>
+    <Router style={{ backgroundImage: 'https://static.dw.com/image/56590211_403.jpg' }}>
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>

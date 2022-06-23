@@ -13,6 +13,8 @@ function ResultsList(props) {
           cityName={result.name}
           key={Math.random()}
           isCorrect={result.isCorrect}
+          rightAnswer={result.rightAnswer}
+          userAnswer={result.userAnswer}
         />
       )) }
     </div>

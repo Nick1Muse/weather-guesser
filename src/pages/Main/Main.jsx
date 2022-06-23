@@ -45,6 +45,11 @@ function Main() {
 
   const [results, setResults] = useState([]);
 
+  const [validationStatus, setValidationStatus] = useState({
+    isTouched: false,
+    isValid: false,
+  });
+
   const [answerValue, setAnswerValue] = useState('');
 
   const [isFinished, setIsFinished] = useState(false);
@@ -74,11 +79,13 @@ function Main() {
       setResults([...results, {
         name: selectedCity.name,
         isCorrect: getDifference(temp, answerValue) <= 5 && !(getDifference(temp, answerValue) < 0),
+        rightAnswer: temp,
+        userAnswer: answerValue,
       }]);
       const newCitiesList = cities.filter((city) => city.id !== selectedCity.id);
       setCities(newCitiesList);
 
-      if (cities.length === 2) {
+      if (cities.length === 1) {
         setIsFinished(true);
       }
     }
@@ -95,6 +102,11 @@ function Main() {
     setCities(newCities);
   }
 
+  function getInputValue(value) {
+    setValidationStatus({ isTouched: true, isValid: +value <= 50 && +value >= -50 });
+    setAnswerValue(value);
+  }
+
   return (
     <div className={classes.main}>
       <div className={classes.contentWrapper}>
@@ -107,9 +119,15 @@ function Main() {
                 className={classes.degreeInput}
                 type="number"
                 placeholder={activeCityName}
-                maxLength="999"
+                maxLength="2"
                 value={answerValue}
-                onChange={(e) => setAnswerValue(e.target.value)}
+                validationStatus={validationStatus}
+                onChange={(e) => getInputValue(e.target.value.slice(0, 2))}
+                onKeyDown={(event) => {
+                  if (event.keyCode === 69) {
+                    event.preventDefault();
+                  }
+                }}
                 onClick={() => submitAnswer()}
               />
             )

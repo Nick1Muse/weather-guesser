@@ -13,7 +13,7 @@ function Result(props) {
           : <h1 className={classes.loseStatus}>YOU LOST :(</h1>
       }
       { results.length ? <ResultsList resultsList={results} /> : null }
-      <BaseButton className={classes.restartButton} buttonName="Restart" onClick={onClick} />
+      <BaseButton className={classes.restartButton} buttonName="Play again" onClick={onClick} />
     </div>
   );
 }

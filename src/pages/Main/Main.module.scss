@@ -3,6 +3,10 @@
   width: 100%;
   height: 100vh;
 
+  @media(max-width: 768px) {
+    padding-top: 75px;
+  }
+
   .contentWrapper {
     width: 100%;
     max-width: 770px;
