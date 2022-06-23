@@ -103,6 +103,7 @@ function Main() {
   }
 
   function getInputValue(value) {
+    console.log('val', value);
     setValidationStatus({ isTouched: true, isValid: +value <= 50 && +value >= -50 });
     setAnswerValue(value);
   }
@@ -124,7 +125,7 @@ function Main() {
                 validationStatus={validationStatus}
                 onChange={(e) => getInputValue(e.target.value.slice(0, 2))}
                 onKeyDown={(event) => {
-                  if (event.keyCode === 69) {
+                  if (event.keyCode === 69 || event.ctrlKey) {
                     event.preventDefault();
                   }
                 }}
