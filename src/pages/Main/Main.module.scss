@@ -1,0 +1,19 @@
+.main {
+  padding: 200px 40px 40px 40px;
+  width: 100%;
+  height: 100vh;
+
+  .contentWrapper {
+    width: fit-content;
+    margin: 0 auto;
+
+    .mainTitle {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .degreeInput {
+      margin: 45px auto 0 auto;
+    }
+  }
+}

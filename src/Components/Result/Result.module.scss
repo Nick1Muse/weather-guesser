@@ -1,0 +1,22 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .winStatus, .loseStatus {
+    font-size: 48px;
+  }
+
+  .winStatus {
+    color: #00af19;
+  }
+
+  .loseStatus {
+    color: #e30000;
+  }
+
+  .restartButton {
+    margin: 50px auto 0 auto;
+  }
+}

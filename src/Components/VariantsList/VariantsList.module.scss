@@ -1,0 +1,23 @@
+.variantsWrapper {
+  width: 770px;
+  overflow: hidden;
+
+  .variantsList {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -10px -10px 0;
+  }
+
+  .city {
+    flex: 1 1 250px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .active {
+    background: #FFF;
+    color: #000;
+  }
+}

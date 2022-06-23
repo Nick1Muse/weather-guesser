@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["airbnb", "airbnb/hooks"],
+  "rules": {
+    "react/prop-types": 0,
+    "no-param-reassign": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "max-len": ["error", { "code": 120, "ignoreUrls": true }]
+  }
+}

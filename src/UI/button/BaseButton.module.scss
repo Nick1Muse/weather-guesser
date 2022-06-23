@@ -1,0 +1,19 @@
+.button {
+  max-width: 200px;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  color: #FFF;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  background-color: #00a0ec;
+  transition: all 0.4s;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: darken(#00a0ec, 2);
+    }
+  }
+}

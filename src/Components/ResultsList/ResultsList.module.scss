@@ -1,0 +1,39 @@
+.resultsList {
+  width: 100%;
+  max-width: 600px;
+  max-height: 300px;
+  height: fit-content;
+  overflow: auto;
+  margin: 45px auto 0 auto;
+
+  .resultItem {
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .correct, .wrong {
+    transition: all .4s;
+    cursor: pointer;
+  }
+
+  .correct {
+    background-color: rgba(#00af19, .7);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(#00af19, 1);
+      }
+    }
+  }
+
+  .wrong {
+    background-color: rgba(#d70000, .7);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(#d70000, 1);
+      }
+    }
+  }
+}
