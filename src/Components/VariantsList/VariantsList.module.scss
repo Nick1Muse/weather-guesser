@@ -1,11 +1,12 @@
 .variantsWrapper {
-  width: 770px;
+  width: 100%;
+  max-width: 770px;
   overflow: hidden;
 
   .variantsList {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0 -10px -10px 0;
   }

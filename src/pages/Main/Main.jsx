@@ -101,7 +101,7 @@ function Main() {
         { !isFinished ? (
           <div>
             <BaseTitle className={classes.mainTitle} titleLabel="Guess the temperature in the city" />
-            <VariantsList cities={cities} handleCityClick={() => setActiveCity} />
+            <VariantsList cities={cities} onClick={(city, index) => setActiveCity(city, index)} />
             { activeCityName ? (
               <BaseInput
                 className={classes.degreeInput}
@@ -110,7 +110,7 @@ function Main() {
                 maxLength="999"
                 value={answerValue}
                 onChange={(e) => setAnswerValue(e.target.value)}
-                onClick={() => submitAnswer}
+                onClick={() => submitAnswer()}
               />
             )
               : null}
@@ -120,7 +120,7 @@ function Main() {
           </div>
         ) : (
           <div>
-            <Result correctAnswersCount={correctAnswersCount} results={results} onClick={() => restart} />
+            <Result correctAnswersCount={correctAnswersCount} results={results} onClick={() => restart()} />
           </div>
         )}
       </div>

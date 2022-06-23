@@ -3,7 +3,7 @@ import classes from './VariantsList.module.scss';
 import Variant from '../Variant/Variant';
 
 function VariantsList(props) {
-  const { cities, handleCityClick } = props;
+  const { cities, onClick } = props;
   return (
     <div className={classes.variantsWrapper}>
       <div className={classes.variantsList}>
@@ -14,7 +14,7 @@ function VariantsList(props) {
             buttonName={city.name}
             key={city.id}
             isActive={city.isActive}
-            onClick={() => handleCityClick(city, index)}
+            onClick={() => onClick(city, index)}
           />
         )) }
       </div>

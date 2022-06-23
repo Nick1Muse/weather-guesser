@@ -4,7 +4,8 @@
   height: 100vh;
 
   .contentWrapper {
-    width: fit-content;
+    width: 100%;
+    max-width: 770px;
     margin: 0 auto;
 
     .mainTitle {

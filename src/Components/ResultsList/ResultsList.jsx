@@ -6,11 +6,12 @@ function ResultsList(props) {
   const { className, resultsList } = props;
   return (
     <div className={`${className || ''} ${classes.resultsList}`}>
-      { resultsList.resultsList.map((result) => (
+      { resultsList.map((result) => (
         <ResultItem
           className={`${classes.resultItem}
         ${result.isCorrect ? classes.correct : classes.wrong}`}
           cityName={result.name}
+          key={Math.random()}
           isCorrect={result.isCorrect}
         />
       )) }
