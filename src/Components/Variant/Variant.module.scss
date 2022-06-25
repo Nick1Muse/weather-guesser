@@ -13,10 +13,18 @@
   outline: none;
   -webkit-tap-highlight-color: rgba(#fff, .3);
 
-  @media (hover: hover) {
-    &:hover {
-      background-color: darken(#00a0ec, 8);
+  &:not(:disabled) {
+    @media (hover: hover) {
+      &:hover {
+        background-color: darken(#00547e, 8);
+      }
     }
+    -webkit-tap-highlight-color: rgba(#fff, .3);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: #808080;
   }
 
   & .active {

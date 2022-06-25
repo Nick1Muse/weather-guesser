@@ -1,20 +1,39 @@
 .resultItem {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 14px;
   border-radius: 8px;
+
+  .cityName {
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFF;
+    -webkit-text-stroke: 0.6px #000;
+    text-stroke: 0.6px #000;
+  }
 
   .answers {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     height: 100%;
     margin-right: auto;
 
     .answer {
       display: flex;
       align-items: center;
+      white-space: nowrap;
       margin: 0 15px;
       color: #FFF;
+
+      @media (max-width: 768px) {}
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
     }
   }
 }

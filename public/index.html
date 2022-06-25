@@ -28,6 +28,7 @@
     <title>React App</title>
   </head>
   <body>
+    <div id="preloader"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,5 +41,22 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      let preloader = document.getElementById('preloader')
+
+      window.addEventListener('load', () => {
+        preloader.style.display = 'none'
+      })
+    </script>
   </body>
+  <style>
+    #preloader {
+      height: 100vh;
+      background: #100f0f url(https://cdn.dribbble.com/users/1148781/screenshots/3233207/bold-preloader.gif) no-repeat center center;
+      background-size: 45%;
+      width: 100%;
+      position: fixed;
+      z-index: 100;
+    }
+  </style>
 </html>

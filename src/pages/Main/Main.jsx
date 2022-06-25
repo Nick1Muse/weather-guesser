@@ -71,26 +71,6 @@ function Main() {
     setIsFinished(false);
   }
 
-  async function submitAnswer() {
-    const selectedCity = cities.find((city) => city.isActive);
-    if (selectedCity) {
-      const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedCity.coords.lat}&lon=${selectedCity.coords.lng}&units=metric&appid=c16f9b8715bc197deccac7a29d4be50b`);
-      const temp = Math.round(data.main.temp);
-      setResults([...results, {
-        name: selectedCity.name,
-        isCorrect: getDifference(temp, answerValue) <= 5 && !(getDifference(temp, answerValue) < 0),
-        rightAnswer: temp,
-        userAnswer: answerValue,
-      }]);
-      const newCitiesList = cities.filter((city) => city.id !== selectedCity.id);
-      setCities(newCitiesList);
-
-      if (cities.length === 1) {
-        setIsFinished(true);
-      }
-    }
-  }
-
   function setActiveCity(city, index) {
     setAnswerValue('');
     const newCities = [...cities];
@@ -103,9 +83,28 @@ function Main() {
   }
 
   function getInputValue(value) {
-    console.log('val', value);
     setValidationStatus({ isTouched: true, isValid: +value <= 50 && +value >= -50 });
     setAnswerValue(value);
+  }
+
+  async function submitAnswer() {
+    const selectedCity = cities.find((city) => city.isActive);
+    if (selectedCity) {
+      const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedCity.coords.lat}&lon=${selectedCity.coords.lng}&units=metric&appid=c16f9b8715bc197deccac7a29d4be50b`);
+      const temp = Math.round(data.main.temp);
+      setResults([...results, {
+        name: selectedCity.name,
+        isCorrect: getDifference(temp, answerValue) <= 5 && !(getDifference(temp, answerValue) < 0),
+        rightAnswer: temp,
+        userAnswer: answerValue,
+      }]);
+
+      if (results.length === 4) {
+        setIsFinished(true);
+      }
+    }
+
+    setActiveCity(null);
   }
 
   return (
@@ -113,13 +112,13 @@ function Main() {
       <div className={classes.contentWrapper}>
         { !isFinished ? (
           <div>
-            <BaseTitle className={classes.mainTitle} titleLabel="Guess the temperature in the city" />
-            <VariantsList cities={cities} onClick={(city, index) => setActiveCity(city, index)} />
+            <BaseTitle className={classes.mainTitle} titleLabel="Guess the temperature in Celsius in the city" />
+            <VariantsList cities={cities} onClick={(city, index) => setActiveCity(city, index)} resultsList={results} />
             { activeCityName ? (
               <BaseInput
                 className={classes.degreeInput}
                 type="number"
-                placeholder={activeCityName}
+                placeholder="Temperature in Celsius"
                 maxLength="2"
                 value={answerValue}
                 validationStatus={validationStatus}

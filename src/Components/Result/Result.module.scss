@@ -9,11 +9,15 @@
   }
 
   .winStatus {
-    color: #00af19;
+    color: #54d900;
+    -webkit-text-stroke: 3px #000;
+    text-stroke: 3px #000;
   }
 
   .loseStatus {
     color: #e30000;
+    -webkit-text-stroke: 3px #000;
+    text-stroke: 3px #000;
   }
 
   .restartButton {

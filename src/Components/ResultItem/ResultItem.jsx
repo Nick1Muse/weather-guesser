@@ -13,15 +13,15 @@ function ResultItem(props) {
   } = props;
   return (
     <div className={`${classes.resultItem} ${className}`}>
-      <span>{ cityName }</span>
+      <span className={classes.cityName}>{ cityName }</span>
       <div className={classes.answers}>
         <span className={classes.answer}>
           <img src={Check} alt="check-icon" />
-          { rightAnswer }
+          { `Correct answer: ${rightAnswer}` }
         </span>
         <span className={classes.answer}>
           <img src={isCorrect ? Check : Close} alt="close-icon" />
-          { userAnswer }
+          { `Your answer: ${userAnswer}` }
         </span>
       </div>
       <b>{ isCorrect ? 'CORRECT' : 'WRONG' }</b>
