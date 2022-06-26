@@ -122,7 +122,8 @@ function Main() {
                 maxLength="2"
                 value={answerValue}
                 validationStatus={validationStatus}
-                onChange={(e) => getInputValue(e.target.value.slice(0, 2))}
+                onChange={(e) => getInputValue(+e.target.value < 0
+                  ? e.target.value.slice(0, 3) : e.target.value.slice(0, 2))}
                 onKeyDown={(event) => {
                   if (event.keyCode === 69 || event.ctrlKey) {
                     event.preventDefault();
