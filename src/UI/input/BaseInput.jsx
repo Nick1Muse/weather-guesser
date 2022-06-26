@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './BaseInput.module.scss';
 import BaseButton from '../button/BaseButton';
 
-function BaseInput(props) {
+const BaseInput = React.forwardRef((props, ref) => {
   const {
     value,
     onChange,
@@ -18,6 +18,7 @@ function BaseInput(props) {
     <div className={`${className} ${classes.inputContainer}`}>
       <div className={classes.inputWrapper}>
         <input
+          ref={ref}
           className={classes.input}
           value={value}
           onChange={onChange}
@@ -41,6 +42,6 @@ function BaseInput(props) {
         : null }
     </div>
   );
-}
+});
 
 export default BaseInput;

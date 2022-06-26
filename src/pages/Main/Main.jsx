@@ -6,6 +6,7 @@ import VariantsList from '../../Components/VariantsList/VariantsList';
 import BaseInput from '../../UI/input/BaseInput';
 import ResultsList from '../../Components/ResultsList/ResultsList';
 import Result from '../../Components/Result/Result';
+import packageJson from '../../../package.json';
 
 const citiesMockData = [
   {
@@ -41,6 +42,8 @@ const citiesMockData = [
 ];
 
 function Main() {
+  const inputRef = React.useRef();
+
   const [cities, setCities] = useState(citiesMockData);
 
   const [results, setResults] = useState([]);
@@ -71,7 +74,7 @@ function Main() {
     setIsFinished(false);
   }
 
-  function setActiveCity(city, index) {
+  async function setActiveCity(city, index) {
     setAnswerValue('');
     const newCities = [...cities];
     newCities.forEach((cityItem) => {
@@ -79,7 +82,8 @@ function Main() {
     });
     newCities[index] = { ...city, isActive: true };
 
-    setCities(newCities);
+    await setCities(newCities);
+    inputRef.current.focus();
   }
 
   function getInputValue(value) {
@@ -116,6 +120,7 @@ function Main() {
             <VariantsList cities={cities} onClick={(city, index) => setActiveCity(city, index)} resultsList={results} />
             { activeCityName ? (
               <BaseInput
+                ref={inputRef}
                 className={classes.degreeInput}
                 type="number"
                 placeholder="Temperature in Celsius"
@@ -143,6 +148,7 @@ function Main() {
           </div>
         )}
       </div>
+      <span className={classes.version}>{ packageJson.version }</span>
     </div>
   );
 }
